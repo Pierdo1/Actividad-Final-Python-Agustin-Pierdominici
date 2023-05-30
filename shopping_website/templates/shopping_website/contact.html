@@ -1,0 +1,27 @@
+<!-- {% extends 'shopping_website/basic.html' %}
+{% block title %} Contact Us {% endblock %}
+{% block body %}
+<div class="container my-4">
+    <h3 style="text-align:center;">Contact Us</h3>
+    <form action="/shopping_website/contact/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su Email">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Ingrese su Numero de telefono">
+        </div>
+        <div class="form-group">
+            <label for="desc">Como podemos ayudarlo?</label>
+            <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Enviar</button>
+    </form>
+</div>
+{% endblock %} -->

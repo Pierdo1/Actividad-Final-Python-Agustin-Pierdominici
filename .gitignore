@@ -1,0 +1,14 @@
+# Python
+*.pyc
+__pycache__/
+build/
+dist/
+env/
+.cache/
+.pytest_cache/
+pygsheets.egg-info/
+.pytest_cache/
+
+# Other
+.DS_Store
+.coverage
