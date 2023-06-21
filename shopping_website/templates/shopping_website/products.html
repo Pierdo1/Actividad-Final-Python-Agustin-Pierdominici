@@ -1,0 +1,65 @@
+{% extends 'shopping_website/basic.html' %}
+{%block title%} {{product.product_name}} {%endblock%}
+{%block css%}
+.btn-primary {
+    color: #fff;
+    background-color: #92b428;
+    border-color: #72dc26;
+}
+{%endblock%}
+
+{%block body%}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="row">
+                <img src="/media/{{product.image}}" alt="product_image" height="480px" width="450px"/>
+            </div>
+        </div>
+        <div class="col-md-7">
+    
+                <h3>{{product.product_name}}</h3>
+                <b>${{product.price}}</b>
+                </br></br>
+                <p>{{product.product_desc}}</p>
+            
+            <div class="row my-5" >
+                <button class="btn btn-primary mx-2" id="pr{{i.id}}">Agregar al carrito</button>
+                <button class="btn btn-primary">Comprar ahora!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+{% block js %} 
+    <script>
+      console.log('working')
+      if(localStorage.getItem('cart') == null)
+      {
+        var cart={};
+      }
+      else{
+        cart= JSON.parse(localStorage.getItem('cart'));
+        document.getElementById('cart').innerHTML = Object.keys(cart).length;
+      }
+    
+      $('.cart').click(function(){
+        console.log('clicked');
+        let idStr= this.id.toString();
+        console.log(idStr);
+        if(cart[idStr]!= undefined) {
+          cart[idStr] = cart[idStr]+1;
+        }
+        else{
+          cart[idStr] = 1;
+        }
+        console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        document.getElementById('cart').innerHTML = Object.keys(cart).length;
+      });
+    
+    $('#popcart').popover();
+    document.getElementById("popcart").setAttribute('data-content', '<h5>my shopping cart</h5>');
+    </script>
+    {% endblock%}

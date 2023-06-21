@@ -1,0 +1,13 @@
+{% extends 'shopping_website/basic.html' %}
+{% block body %}
+
+<div class="container my-4">
+    <h3 style="text-align:center;">Register</h3>
+    <form method="POST" action="{% url 'Register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+{% endblock %}
